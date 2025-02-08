@@ -192,7 +192,9 @@ jobs:
         sudo update-alternatives --set ${{ matrix.toolchain.host }}-g++ $(which ${{ matrix.toolchain.host }}-g++-posix)
         sudo update-alternatives --set ${{ matrix.toolchain.host }}-gcc $(which ${{ matrix.toolchain.host }}-gcc-posix)
     - name: Fix permissions for all scripts
-      run: chmod -R 777 .
+      run: |
+        chmod -R 777 /home/runner/work/Lunify/Lunify/contrib/depends/config.guess
+        chmod -R 777 /home/runner/work/Lunify/Lunify/contrib/depends/config.sub
     - name: build
       run: |
         ${{env.CCACHE_SETTINGS}}
