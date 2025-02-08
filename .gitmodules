@@ -1,0 +1,20 @@
+[submodule "external/randomx"]
+	path = external/randomx
+	url = https://github.com/LunifyProject/Panthera
+[submodule "external/unbound"]
+	path = external/unbound
+	url = https://github.com/monero-project/unbound
+	branch = b26b313
+[submodule "external/miniupnp"]
+	path = external/miniupnp
+	url = https://github.com/miniupnp/miniupnp
+	branch = 544e6fc
+[submodule "external/rapidjson"]
+	path = external/rapidjson
+	url = https://github.com/Tencent/rapidjson
+[submodule "external/trezor-common"]
+	path = external/trezor-common
+	url = https://github.com/trezor/trezor-common.git
+[submodule "external/felidae"]
+	path = external/felidae
+	url = https://github.com/LunifyProject/felidae
