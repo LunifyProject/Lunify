@@ -59,8 +59,6 @@ jobs:
         key: ccache-${{ runner.os }}-libwallet-${{ github.sha }}
     - name: remove bundled boost
       run: ${{env.REMOVE_BUNDLED_BOOST}}
-    - name: remove bundled boost
-      run: ${{env.REMOVE_BUNDLED_BOOST}}
     - name: set apt conf
       run: ${{env.APT_SET_CONF}}
     - name: update apt
