@@ -57,21 +57,19 @@ jobs:
       with:
         path: ~/.ccache
         key: ccache-${{ runner.os }}-libwallet-${{ github.sha }}
-    - name: remove bundled boost
+    - name: Remove bundled boost
       run: ${{env.REMOVE_BUNDLED_BOOST}}
-    - name: set apt conf
+    - name: Set apt conf
       run: ${{env.APT_SET_CONF}}
-    - name: update apt
+    - name: Update apt
       run: sudo apt update
-    - name: install scala dependencies
+    - name: Install Lunify dependencies
       run: ${{env.APT_INSTALL_LINUX}}
-    - name: build depends
+    - name: Build depends
       run: |
         ${{env.CCACHE_SETTINGS}}
-        cmake .
         make depends target=${{ matrix.toolchain.make_command_depends }} -j4
-    - name: build
+    - name: Build
       run: |
         ${{env.CCACHE_SETTINGS}}
-        cmake .
         make ${{ matrix.toolchain.make_command }} -j7
