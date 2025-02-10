@@ -76,4 +76,4 @@ jobs:
     - name: Build
       run: |
         ${{env.CCACHE_SETTINGS}}
-        make ${{ matrix.toolchain.make_command }} -j7
+        make lunify_path=/home/runner/work/Lunify/Lunify/ ${{ matrix.toolchain.make_command }} -j7
