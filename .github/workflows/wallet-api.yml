@@ -35,7 +35,7 @@ jobs:
             make_command: "release-static-android-armv7-wallet_api"
             packages: "python3 gperf g++-arm-linux-gnueabihf"
           - name: "ARM v8"
-            make_command_depends: "aarch64-linux-gnu"
+            make_command_depends: "aarch64-linux-android"
             make_command: "release-static-android-armv8-wallet_api"
             packages: "python3 gperf g++-aarch64-linux-gnu"
           - name: "x86 Linux"
