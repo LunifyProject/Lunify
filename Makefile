@@ -170,11 +170,11 @@ release-static-android-armv8-wallet_api:
 
 release-static-android-x86_64-wallet_api:
 	mkdir -p $(builddir)/release
-	cd $(builddir)/release && CC=x86_64-linux-android-clang CXX=x86_64-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="x86-64" -D STATIC=ON -D BUILD_64=ON -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86_64" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="${lunify_path}${ANDROID_STANDALONE_TOOLCHAIN_PATH}" -D CMAKE_ANDROID_ARCH_ABI="x86_64" $(topdir) && $(MAKE) wallet_api
+	cd $(builddir)/release && CC=x86_64-linux-android-clang CXX=x86_64-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="x86-64" -D STATIC=ON -D BUILD_64=ON -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86_64" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="${lunify_path}contrib/depends/x86_64-linux-android/native" -D CMAKE_ANDROID_ARCH_ABI="x86_64" $(topdir) && $(MAKE) wallet_api
 
 release-static-android-x86-wallet_api:
 	mkdir -p $(builddir)/release
-	cd $(builddir)/release && CC=i686-linux-android-clang CXX=i686-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="i686" -D STATIC=ON -D BUILD_64=OFF -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="${lunify_path}${ANDROID_STANDALONE_TOOLCHAIN_PATH}" -D CMAKE_ANDROID_ARCH_ABI="x86" $(topdir) && $(MAKE) wallet_api
+	cd $(builddir)/release && CC=i686-linux-android-clang CXX=i686-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="i686" -D STATIC=ON -D BUILD_64=OFF -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="${lunify_path}contrib/depends/i686-linux-android/native" -D CMAKE_ANDROID_ARCH_ABI="x86" $(topdir) && $(MAKE) wallet_api
 
 fuzz:
 	mkdir -p $(builddir)/fuzz
