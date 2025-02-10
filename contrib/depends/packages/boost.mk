@@ -26,6 +26,9 @@ $(package)_config_libraries_mingw32="chrono,filesystem,program_options,system,th
 $(package)_cxxflags=-std=c++17
 $(package)_cxxflags_linux+=-fPIC
 $(package)_cxxflags_freebsd+=-fPIC
+$(package)_cxxflags_arm+=-fPIC
+$(package)_cxxflags_aarch64+=-fPIC
+$(package)_cxxflags_x86_64+=-fPIC
 $(package)_cxxflags_darwin+=-ffile-prefix-map=$($(package)_extract_dir)=/usr
 endef
 
