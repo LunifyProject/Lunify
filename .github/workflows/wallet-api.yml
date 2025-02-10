@@ -78,5 +78,5 @@ jobs:
     - name: Upload .a files as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: static-libraries
+        name: WalletAPI ${{ matrix.toolchain.name }}
         path: aFiles/**/*.a
