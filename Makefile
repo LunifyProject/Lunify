@@ -160,7 +160,7 @@ release-static-win32:
 
 release-static-android-armv7-wallet_api:
 	mkdir -p $(builddir)/release
-	cd $(builddir)/release && CC=arm-linux-androideabi-clang CXX=arm-linux-androideabi-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="armv7-a" -D STATIC=ON -D BUILD_64=OFF -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-armv7" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="$(PWD)/contrib/depends/arm-linux-android/native" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/arm-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/arm-linux-android/lib" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/arm-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/arm-linux-android/lib" -D CMAKE_ANDROID_ARM_MODE=ON -D CMAKE_ANDROID_ARCH_ABI="armeabi-v7a" -D NO_AES=true $(topdir) && $(MAKE) wallet_api
+	cd $(builddir)/release && CC=arm-linux-androideabi-clang CXX=arm-linux-androideabi-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="armv7-a" -D STATIC=ON -D BUILD_64=OFF -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-armv7" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="$(PWD)/contrib/depends/arm-linux-android/native" -D BOOST_ROOT="$(PWD)/contrib/depends/arm-linux-android" -D BOOST_LIBRARYDIR="$(PWD)/contrib/depends/arm-linux-android/lib" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/arm-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/arm-linux-android/lib" -D CMAKE_ANDROID_ARM_MODE=ON -D CMAKE_ANDROID_ARCH_ABI="armeabi-v7a" -D NO_AES=true $(topdir) && $(MAKE) wallet_api
 
 release-static-android-armv8-wallet_api:
 	mkdir -p $(builddir)/release
@@ -168,7 +168,7 @@ release-static-android-armv8-wallet_api:
 
 release-static-android-x86_64-wallet_api:
 	mkdir -p $(builddir)/release
-	cd $(builddir)/release && CC=x86_64-linux-android-clang CXX=x86_64-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="x86-64" -D STATIC=ON -D BUILD_64=ON -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86_64" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="$(PWD)/contrib/depends/x86_64-linux-android/native" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/x86_64-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/x86_64-linux-android/lib" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/x86_64-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/x86_64-linux-android/lib" -D CMAKE_ANDROID_ARCH_ABI="x86_64" $(topdir) && $(MAKE) wallet_api
+	cd $(builddir)/release && CC=x86_64-linux-android-clang CXX=x86_64-linux-android-clang++ cmake -D MONERUJO_HIDAPI=ON -D USE_DEVICE_TREZOR=OFF -D BUILD_GUI_DEPS=1 -D BUILD_TESTS=OFF -D ARCH="x86-64" -D STATIC=ON -D BUILD_64=ON -D CMAKE_BUILD_TYPE=release -D ANDROID=true -D BUILD_TAG="android-x86_64" -D CMAKE_SYSTEM_NAME="Android" -D CMAKE_ANDROID_STANDALONE_TOOLCHAIN="$(PWD)/contrib/depends/x86_64-linux-android/native" -D BOOST_ROOT="$(PWD)/contrib/depends/x86_64-linux-android" -D BOOST_LIBRARYDIR="$(PWD)/contrib/depends/x86_64-linux-android/lib" -D CMAKE_INCLUDE_PATH="$(PWD)/contrib/depends/x86_64-linux-android" -D CMAKE_LIBRARY_PATH="$(PWD)/contrib/depends/x86_64-linux-android/lib" -D CMAKE_ANDROID_ARCH_ABI="x86_64" $(topdir) && $(MAKE) wallet_api
 
 fuzz:
 	mkdir -p $(builddir)/fuzz
