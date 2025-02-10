@@ -65,6 +65,10 @@ jobs:
       run: sudo apt update
     - name: Install Lunify dependencies
       run: ${{env.APT_INSTALL_LINUX}}
+    - name: Fix permissions for all scripts
+      run: |
+        chmod -R 777 /home/runner/work/Lunify/Lunify/contrib/depends/config.guess
+        chmod -R 777 /home/runner/work/Lunify/Lunify/contrib/depends/config.sub
     - name: Build depends
       run: |
         ${{env.CCACHE_SETTINGS}}
