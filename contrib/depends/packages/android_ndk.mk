@@ -8,6 +8,8 @@ $(package)_patches=api_definition.patch fix_env.patch
 define $(package)_set_vars
 $(package)_config_opts_arm=--arch arm
 $(package)_config_opts_aarch64=--arch arm64
+$(package)_config_opts_x86_64=--arch x86_64
+$(package)_config_opts_i686=--arch x86
 endef
 
 define $(package)_extract_cmds
