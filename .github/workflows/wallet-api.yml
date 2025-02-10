@@ -1,0 +1,79 @@
+name: ci/gh-actions/cli
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**/README.md'
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**/README.md'
+
+env:
+  REMOVE_BUNDLED_BOOST : rm -rf /usr/local/share/boost
+  APT_INSTALL_LINUX: 'sudo apt -y install build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev libnorm-dev libusb-1.0-0-dev libpgm-dev libprotobuf-dev protobuf-compiler ccache'
+  APT_SET_CONF: |
+        echo "Acquire::Retries \"3\";"         | sudo tee -a /etc/apt/apt.conf.d/80-custom
+        echo "Acquire::http::Timeout \"120\";" | sudo tee -a /etc/apt/apt.conf.d/80-custom
+        echo "Acquire::ftp::Timeout \"120\";"  | sudo tee -a /etc/apt/apt.conf.d/80-custom
+  CCACHE_SETTINGS: |
+        ccache --max-size=150M
+        ccache --set-config=compression=true
+
+jobs:
+  build-cross:
+    runs-on: ubuntu-20.04
+    env:
+      CCACHE_TEMPDIR: /tmp/.ccache-temp
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain:
+          - name: "ARM v7"
+            host: "arm-linux-gnueabihf"
+            make_command_depends: "arm-linux-android"
+            make_command: "release-static-android-armv7-wallet_api"
+            packages: "python3 gperf g++-arm-linux-gnueabihf"
+          - name: "ARM v8"
+            host: "aarch64-linux-gnu"
+            make_command_depends: ""
+            make_command: "release-static-android-armv8-wallet_api"
+            packages: "python3 gperf g++-aarch64-linux-gnu"
+          - name: "x86 Linux"
+            make_command_depends: "i686-pc-linux-gnu"
+            make_command: "release-static-android-x86-wallet_api"
+            packages: "gperf cmake python3-zmq libdbus-1-dev libharfbuzz-dev"
+          - name: "x86_64 Linux"
+            make_command_depends: "x86_64-unknown-linux-gnu"
+            make_command: "release-static-android-x86_64-wallet_api"
+            packages: "gperf cmake python3-zmq libdbus-1-dev libharfbuzz-dev"
+    name: ${{ matrix.toolchain.name }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - uses: actions/cache@v3
+      with:
+        path: ~/.ccache
+        key: ccache-${{ runner.os }}-libwallet-${{ github.sha }}
+    - name: remove bundled boost
+      run: ${{env.REMOVE_BUNDLED_BOOST}}
+    - name: remove bundled boost
+      run: ${{env.REMOVE_BUNDLED_BOOST}}
+    - name: set apt conf
+      run: ${{env.APT_SET_CONF}}
+    - name: update apt
+      run: sudo apt update
+    - name: install scala dependencies
+      run: ${{env.APT_INSTALL_LINUX}}
+    - name: build depends
+      run: |
+        ${{env.CCACHE_SETTINGS}}
+        cmake .
+        make depends target=${matrix.toolchain.make_command_depends} -j4
+    - name: build
+      run: |
+        ${{env.CCACHE_SETTINGS}}
+        cmake .
+        make ${matrix.toolchain.make_command} -j7
