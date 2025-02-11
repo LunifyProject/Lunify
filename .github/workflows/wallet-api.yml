@@ -5,10 +5,12 @@ on:
     paths-ignore:
       - 'docs/**'
       - '**/README.md'
+      - '.gitignore'
   pull_request:
     paths-ignore:
       - 'docs/**'
       - '**/README.md'
+      - '.gitignore'
 
 env:
   REMOVE_BUNDLED_BOOST : rm -rf /usr/local/share/boost
