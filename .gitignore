@@ -112,3 +112,9 @@ nbproject
 __pycache__/
 
 .vscode/
+contrib/depends/aarch64-linux-gnu
+contrib/depends/aarch64-linux-android
+contrib/depends/x86_64-linux-android
+contrib/depends/built
+contrib/depends/sources
+contrib/depends/work
