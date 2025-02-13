@@ -89,21 +89,22 @@ bool get_block_reward(size_t median_weight, size_t current_block_weight,
   static_assert(DIFFICULTY_TARGET % 60 == 0,
                 "difficulty targets must be a multiple of 60");
                 // Premine
-  const uint64_t premine_and_swap_amount = 25000000U;
+  const uint64_t premine_and_swap_amount = 500000U * COIN;
+  const uint64_t block_reward = 8U * COIN;
   uint64_t base_reward;
 
   // Premine
   if (already_generated_coins == 0) {
-    base_reward = 100U;
+    base_reward = block_reward;
   } else if (height == 15) {
     reward = premine_and_swap_amount;
     return true;
   } else if ((height > 15) && version <= 12) {
-    base_reward = 100U;
+    base_reward = block_reward;
   } else if (version > 12) {
-    base_reward = 100U;
+    base_reward = block_reward;
   } else {
-    base_reward = 100U;
+    base_reward = block_reward;
   }
 
   uint64_t full_reward_zone = get_min_block_weight(version);
