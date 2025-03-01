@@ -1403,7 +1403,7 @@ void get_blob_hash(const blobdata &blob, crypto::hash &res) {
 //---------------------------------------------------------------
 void set_default_decimal_point(unsigned int decimal_point) {
   switch (decimal_point) {
-  case 2:
+  case 8:
   case 0:
     default_decimal_point = decimal_point;
     break;
