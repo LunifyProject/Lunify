@@ -61,9 +61,7 @@
 #define lunify_DEFAULT_LOG_CATEGORY "wallet.simplewallet"
 // Hardcode Lunify's donation address
 constexpr const char lunify_DONATION_ADDR[] =
-    "SvkzckfVpUSWuSG4VS4WCL9KMTh39krgk6SLwVGLkZufh83ET8JjZ3yidaoURyHgLFDhFZEPPY"
-    "12cHqYyS"
-    "VoV2x62XvMtJii5";
+    "fyS9nPthmg1jMrfpfM2aGPHRaPBTVkhpL88rE8nUjgM3Ce1X38sQx21XkFR7G76MFe7mtCkZvRNugVEFLPKzqgVw2HLf7eEP6";
 
 /*!
  * \namespace cryptonote
