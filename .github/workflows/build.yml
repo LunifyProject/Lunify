@@ -68,7 +68,7 @@ jobs:
           - name: "ARMv8 Android (aarch64-linux-android)"
             host: "aarch64-linux-android"
           - name: "Win64 (test)"
-            host: "x86_64-w64-mingw32"
+            host: "x86_64-w64-mingw32 mingw-w64-x86-64-icu mingw-w64-x86-64-libiconv"
             packages: "g++-mingw-w64-x86-64"
           - name: "Cross-Mac x86_64"
             host: "x86_64-apple-darwin"
