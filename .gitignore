@@ -115,6 +115,7 @@ __pycache__/
 contrib/depends/aarch64-linux-gnu
 contrib/depends/aarch64-linux-android
 contrib/depends/x86_64-linux-android
+contrib/depends/x86_64-w64-mingw32
 contrib/depends/built
 contrib/depends/sources
 contrib/depends/work

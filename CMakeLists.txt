@@ -1116,10 +1116,18 @@ if(MINGW)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wa,-mbig-obj")
   set(EXTRA_LIBRARIES mswsock;ws2_32;iphlpapi;crypt32;bcrypt)
   if(DEPENDS)
-    set(ICU_LIBRARIES icuio icui18n icuuc icudata icutu iconv)
+    set(ICU_LIBRARIES
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libicuio.a
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libicui18n.a
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libicuuc.a
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libicudata.a
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libicutu.a
+      ${CMAKE_CURRENT_SOURCE_DIR}/contrib/depends/${COMTARGET}/lib/libiconv.a
+    )
   else()
     set(ICU_LIBRARIES icuio icuin icuuc icudt icutu iconv)
   endif()
+
 elseif(APPLE OR OPENBSD OR ANDROID)
   set(EXTRA_LIBRARIES "")
 elseif(FREEBSD)

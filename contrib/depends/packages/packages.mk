@@ -21,6 +21,8 @@ linux_packages := eudev
 freebsd_native_packages := freebsd_base
 freebsd_packages :=
 
+mingw32_packages = icu4c sodium $(hardware_packages)
+
 # Mac OS X packages
 ifneq ($(build_os),darwin)
 darwin_native_packages := darwin_sdk native_cctools native_libtapi
