@@ -107,23 +107,31 @@ jobs:
       run: |
         ${{env.CCACHE_SETTINGS}}
         make depends target=${{ matrix.toolchain.host }} -j${{env.MAKE_JOB_COUNT}}
+    - name: Set paths
+      id: set_paths
+      run: |
+        if [ "${{ matrix.toolchain.host }}" == "x86_64-w64-mingw32" ]; then
+          echo "EXE_EXTENSION=.exe" >> $GITHUB_ENV
+        else
+          echo "EXE_EXTENSION=" >> $GITHUB_ENV
+        fi
     - uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.toolchain.name }}
         path: |
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-depth${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-export${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-import${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-mark-spent-outputs${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-prune${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-prune-known-spent-data${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-stats${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-usage${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunifyd${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-gen-ssl-cert${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-gen-trusted-multisig${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-wallet-cli${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
-          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-wallet-rpc${{ '.exe' if matrix.toolchain.host == 'x86_64-w64-mingw32' else '' }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-depth${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-export${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-import${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-mark-spent-outputs${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-prune${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-prune-known-spent-data${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-stats${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-blockchain-usage${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunifyd${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-gen-ssl-cert${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-gen-trusted-multisig${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-wallet-cli${{ env.EXE_EXTENSION }}
+          /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/build/${{ matrix.toolchain.host }}/release/bin/lunify-wallet-rpc${{ env.EXE_EXTENSION }}
 
   build-mac:
     name: ${{ matrix.toolchain.name }}
@@ -173,7 +181,7 @@ jobs:
 
   download:
     name: Release Artifacts
-    needs: ['build-cross']
+    needs: ['build-cross', 'build-mac']
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.run_release == 'true' }}
     steps:
