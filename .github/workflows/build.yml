@@ -162,6 +162,9 @@ jobs:
             host: "arm-linux-android"
           - name: "ARMv8 Android (aarch64-linux-android)"
             host: "aarch64-linux-android"
+          - name: "Win64 (test)"
+            host: "x86_64-w64-mingw32"
+            packages: "g++-mingw-w64-x86-64"
     steps:
     - uses: actions/checkout@v4
       with:
