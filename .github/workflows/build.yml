@@ -133,7 +133,7 @@ jobs:
 
   download:
     name: Release Artifacts
-    needs: ['build-mac', 'build-windows', 'build-cross']
+    needs: ['build-cross']
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.run_release == 'true' }}
     steps:
