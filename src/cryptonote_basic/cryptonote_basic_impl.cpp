@@ -89,8 +89,8 @@ bool get_block_reward(size_t median_weight, size_t current_block_weight,
   static_assert(DIFFICULTY_TARGET % 60 == 0,
                 "difficulty targets must be a multiple of 60");
                 // Premine
-  const uint64_t premine_and_swap_amount = 500000U * COIN;
-  const uint64_t block_reward = 8U * COIN;
+  const uint64_t premine_and_swap_amount = PREMINE_AMOUNT * COIN;
+  const uint64_t block_reward = BLOCK_REWARD * COIN;
   uint64_t base_reward;
 
   // Premine

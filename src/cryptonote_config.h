@@ -50,8 +50,13 @@
 
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               60
 
-// MONEY_SUPPLY - total number coins to be generated
+// Finance Specifications
+#define COIN                                            ((uint64_t)100000000)
 #define MONEY_SUPPLY                                    ((uint64_t)(10000000 * COIN))
+#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                8
+#define BLOCK_REWARD                                    8
+#define PREMINE_AMOUNT                                  200000U
+
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (20)
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)30)
 
@@ -62,9 +67,7 @@
 #define CRYPTONOTE_LONG_TERM_BLOCK_WEIGHT_WINDOW_SIZE   100000 // size in blocks of the long term block weight median window
 #define CRYPTONOTE_SHORT_TERM_BLOCK_WEIGHT_SURGE_FACTOR 50
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
-#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                8
 // COIN - number of smallest units in one coin
-#define COIN                                            ((uint64_t)100000000)
 
 #define FEE_PER_KB_OLD                                  ((uint64_t)1)
 #define FEE_PER_KB                                      ((uint64_t)10)
@@ -232,7 +235,7 @@ namespace config
   uint16_t const RPC_DEFAULT_PORT = 25252;
   uint16_t const ZMQ_RPC_DEFAULT_PORT = 25253;
   boost::uuids::uuid const NETWORK_ID = {{
-    0x50, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x92
+    0x69, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x92
   }};
   std::string const GENESIS_TX =
     "01"
@@ -241,7 +244,7 @@ namespace config
     "ff"
     "00"
     "01"
-    "1e02"
+    "0808"
     "cde9ad204090a648b92e895084e5cc83e259576f389cd1c3cf288a8bef13c389"
     "21"
     "01"
@@ -285,7 +288,7 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 26252;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 26253;
     boost::uuids::uuid const NETWORK_ID = {{
-      0x50, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x93
+      0x69, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x93
     }};
     std::string const GENESIS_TX =
       "01"
@@ -294,7 +297,7 @@ namespace config
       "ff"
       "00"
       "01"
-      "1e02"
+      "0808"
       "3993cd650fb296ba2e67351e1895cda56fa622c77c578c1f4ecc1c50024ada81"
       "21"
       "01"
@@ -311,7 +314,7 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 27252;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 27253;
     boost::uuids::uuid const NETWORK_ID = {{
-      0x50, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x94
+      0x69, 0x4F, 0x5B, 0x92, 0x3E, 0xA3, 0x4F, 0x6C, 0xA3, 0x2D, 0x5B, 0x92, 0x3E, 0x4F, 0xA3, 0x94
     }};
     std::string const GENESIS_TX =
       "01"
@@ -320,7 +323,7 @@ namespace config
       "ff"
       "00"
       "01"
-      "1e02"
+      "0808"
       "2c07794f6292faf579ce6bd49d1d37cf299fe62abfc477843b9ee4868d3e6933"
       "21"
       "01"
