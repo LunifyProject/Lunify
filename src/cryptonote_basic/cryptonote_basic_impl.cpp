@@ -83,28 +83,33 @@ size_t get_min_block_weight(uint8_t version) {
 //-----------------------------------------------------------------------------------------------
 size_t get_max_tx_size() { return CRYPTONOTE_MAX_TX_SIZE; }
 //-----------------------------------------------------------------------------------------------
+
+uint64_t halving_mechanism(uint64_t initial_reward, uint64_t height) {
+  uint64_t halvings = height / HALVING_BLOCKS;
+  return initial_reward >> halvings;
+}
+
 bool get_block_reward(size_t median_weight, size_t current_block_weight,
                       uint64_t already_generated_coins, uint64_t &reward,
                       uint8_t version, uint64_t height) {
   static_assert(DIFFICULTY_TARGET % 60 == 0,
                 "difficulty targets must be a multiple of 60");
-                // Premine
   const uint64_t premine_and_swap_amount = PREMINE_AMOUNT * COIN;
   const uint64_t block_reward = BLOCK_REWARD * COIN;
   uint64_t base_reward;
 
   // Premine
   if (already_generated_coins == 0) {
-    base_reward = block_reward;
+    base_reward = halving_mechanism(block_reward, height);
   } else if (height == 15) {
     reward = premine_and_swap_amount;
     return true;
   } else if ((height > 15) && version <= 12) {
-    base_reward = block_reward;
+    base_reward = halving_mechanism(block_reward, height);
   } else if (version > 12) {
-    base_reward = block_reward;
+    base_reward = halving_mechanism(block_reward, height);
   } else {
-    base_reward = block_reward;
+    base_reward = halving_mechanism(block_reward, height);
   }
 
   uint64_t full_reward_zone = get_min_block_weight(version);

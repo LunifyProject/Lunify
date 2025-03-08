@@ -56,6 +56,7 @@
 #define CRYPTONOTE_DISPLAY_DECIMAL_POINT                8
 #define BLOCK_REWARD                                    8
 #define PREMINE_AMOUNT                                  200000U
+#define HALVING_BLOCKS                                  259200
 
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (20)
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)30)
