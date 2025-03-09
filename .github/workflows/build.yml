@@ -198,7 +198,7 @@ jobs:
         tar -czf 'release/Lunify-${{ github.event.inputs.version_number }}-x86_64-apple-darwin.tar.gz' -C release 'MacOS (x86_64-apple-darwin)'
     - name: Create zip archive for 'Win64 (x86_64-w64-mingw32)'
       run: |
-        zip -r 'release/Lunify-${{ github.event.inputs.version_number }}-x86_64-w64-mingw32.tar.gz' 'release/Win64 (x86_64-w64-mingw32)'
+        zip -r 'release/Lunify-${{ github.event.inputs.version_number }}-x86_64-w64-mingw32.zip' 'release/Win64 (x86_64-w64-mingw32)'
     - name: Create tar.gz archive for 'RISC-V 64bit (riscv64-linux-gnu)'
       run: |
         tar -czf 'release/Lunify-${{ github.event.inputs.version_number }}-riscv64-linux-gnu.tar.gz' -C release 'RISC-V 64bit (riscv64-linux-gnu)'
