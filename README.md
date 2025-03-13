@@ -1,20 +1,13 @@
 # Lunify
+![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/LunifyProject/Lunify/latest/total)
+[![Build Status](https://travis-ci.org/LunifyProject/Lunify.svg?branch=master)](https://travis-ci.org/LunifyProject/Lunify)
+![GitHub Release](https://img.shields.io/github/v/release/LunifyProject/Lunify)
 
-Copyright (c) 2025, The Lunify Team
+![Discord](https://img.shields.io/discord/1341373793909608530)
 
-Copyright (c) 2021-2025, Haku Labs MTÜ
+[<img src="https://lunify.xyz/img/logo_with_text.svg">](https://lunify.xyz)
 
-Copyright (c) 2014-2025, The Monero Project
-
-Portions Copyright (c) 2012-2013 The Cryptonote developers.
-
-[<img src="https://lunify.xyz.io/img/github_card.jpg">](https://lunify.xyz)
-
-Lunify is a privacy-focused cryptocurrency project linking distributed technologies to build a globally scalable and mobile-friendly ecosystem. We provide an opaque blockchain, untraceable payments, unlinkable transactions, and blockchain-analysis resistance.
-
-Our vision is to distribute wealth for everyone and every device. We want to be the people’s coin. To achieve this goal, we focus on implementing solutions that are mobile-friendly and energy-efficient. There are about 4 billion mobile devices in the world, and we want to make sure that our ecosystem takes that into account. We also take a lot of time to improve the user experience so that our applications can be used easily by anyone.
-
-Obviously, our goal is also to bring useful utilities and to solve real-world problems, in a way that is economically viable for the project and to sustain our growth. We take advantage of next-gen technologies such as IPFS and custom software to provide the utility of data storage and we use the proven CryptoNote protocol for providing the financial aspects.
+Lunify is a next-generation cryptocurrency built for privacy, security, and ease of use. Our mission is to create a decentralized financial ecosystem that empowers individuals while ensuring complete transaction anonymity. With untraceable payments, unlinkable transactions, and blockchain-analysis resistance, Lunify protects your financial freedom in an increasingly digital world.
 
 ## Table of Contents
 
@@ -62,6 +55,7 @@ Obviously, our goal is also to bring useful utilities and to solve real-world pr
   - [Protocols](#protocols)
     - [Socket-based](#socket-based)
     - [Blockchain-based](#blockchain-based)
+- [Copyright](#copyright)
 
 ## Development resources
 
@@ -798,3 +792,10 @@ Because of the nature of the socket-based protocols that drive Lunify, certain p
 Certain blockchain "features" can be considered "bugs" if misused correctly. Consequently, please consider the following:
 
 - When receiving Lunify, be aware that it may be locked for an arbitrary time if the sender elected to, preventing you from spending that Lunify until the lock time expires. You may want to hold off acting upon such a transaction until the unlock time lapses. To get a sense of that time, you can consider the remaining blocktime until unlock as seen in the `show_transfers` command.
+
+# Copyright
+
+Copyright (c) 2025, The Lunify Team<br>
+Copyright (c) 2021-2025, Haku Labs MTÜ<br>
+Copyright (c) 2014-2025, The Monero Project<br>
+Portions Copyright (c) 2012-2013 The Cryptonote developers.<br>
