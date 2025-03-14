@@ -2268,8 +2268,7 @@ bool core_rpc_server::on_add_aux_pow(
   }
 
   block b;
-  crypto::hash blk_id;
-  if (!parse_and_validate_block_from_blob(blocktemplate_blob, b, blk_id)) {
+  if (!parse_and_validate_block_from_blob(blocktemplate_blob, b)) {
     error_resp.code = CORE_RPC_ERROR_CODE_WRONG_BLOCKBLOB;
     error_resp.message = "Wrong blocktemplate_blob";
     return false;
@@ -2329,7 +2328,8 @@ bool core_rpc_server::on_submitblock(
   // Fixing of high orphan issue for most pools
   // Thanks Boolberry!
   block b;
-  if (!parse_and_validate_block_from_blob(blockblob, b)) {
+  crypto::hash blk_id;
+  if(!parse_and_validate_block_from_blob(blockblob, b, blk_id))
     error_resp.code = CORE_RPC_ERROR_CODE_WRONG_BLOCKBLOB;
     error_resp.message = "Wrong block blob";
     return false;
